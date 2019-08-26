@@ -53,6 +53,7 @@ class App extends Component {
 
   addNote = (note) => {
     this.setState({notes: [...this.state.notes, note]})
+    window.history.back()
   }
 
   componentDidMount() {

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ValiationError from '../AddFolder/ValidationError';
+import React, {Component} from 'react'
+import { format } from 'date-fns'
 import NotesContext from '../NotesContext';
 
 export default class AddNote extends Component {
@@ -37,6 +37,8 @@ export default class AddNote extends Component {
   validateFolder(name){
     let errorMsg = this.state.validFolderMessage;
     let hasError = false;
+    console.log(name)
+    console.log(this.context.folders)
     if(this.context.folders.find((folder) => folder.name === name) === undefined){
       errorMsg = 'Please select a valid folder'
       hasError = true;
@@ -108,12 +110,23 @@ export default class AddNote extends Component {
 
     this.handleSubmit= (event) => {
     event.preventDefault();
-    this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders.find((folder) => folder.name === this.state.folder).id
+    console.log(this.state.folder)
+    if (!this.state.folder){
+      this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders[0].id, new Date(), addNote)
+    } else {
+      this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders.find((folder) => folder.name === this.state.folder).id
     , new Date(), addNote)
+    }
   }
 
     const { addNote } = this.context
 
+    const filteredFolders = this.context.folders.map(folder => {
+      console.log(folder);
+      return (
+        <option value={folder.name}>{folder.name}</option>
+      )
+    })
     return(
       <div>
         <form onSubmit= {(event) => this.handleSubmit(event)}>
@@ -124,9 +137,10 @@ export default class AddNote extends Component {
             <input placeholder = "Note content" onChange = {(e) => this.updateNoteContent(e.target.value)}></input>
           </label>
           <label> Folder Name
-            <input placeholder = "Folder name" onChange = {(e) => 
+            <select placeholder = "Folder name" onChange = {(e) => 
             this.updateFolder(e.target.value)}>
-            </input>
+            {filteredFolders}
+            </select>
           </label>
           <button type="submit">Submit</button>
         </form>
