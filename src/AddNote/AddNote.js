@@ -124,7 +124,7 @@ export default class AddNote extends Component {
     const filteredFolders = this.context.folders.map(folder => {
       console.log(folder);
       return (
-        <option value={folder.name}>{folder.name}</option>
+        <option key={folder.id} value={folder.name}>{folder.name}</option>
       )
     })
     return(
