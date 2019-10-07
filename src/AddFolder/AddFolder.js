@@ -44,12 +44,12 @@ export default class AddFolder extends Component {
   }
 
   addFolderRequest(name, addFolder) {
-    fetch(`http://localhost:9090/folders`, {
+    fetch(`http://localhost:8000/folders`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({name: name})
+      body: JSON.stringify({title: name})
     })
     .then(res => {
       if (!res.ok) {

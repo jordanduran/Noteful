@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   deleteNote = noteId => {
-    const newNotes = this.state.notes.filter((note) => note.id !== noteId);
+    const newNotes = this.state.notes.filter((note) => note.id !== parseInt(noteId, 10));
     this.setState({notes: newNotes})
   }
 
@@ -111,7 +111,7 @@ class App extends Component {
         <Route
           path='/note/:noteId'
           render={routeProps => {
-            const { noteId } = routeProps.match.params
+            const noteId = parseInt(routeProps.match.params.noteId, 10)
             const note = findNote(notes, noteId)
             return (
               <NotePageMain

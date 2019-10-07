@@ -11,17 +11,17 @@ class NoteListMain extends Component {
   static contextType = NotesContext
   render(){
     const {notes} = this.context;
-    const folderId = this.props.match.params.folderId
-
+    const folderId = parseInt(this.props.match.params.folderId, 10)
     const notesInFolder = notes.filter((note) => 
     {if(folderId){
-     return  note.folderId === folderId
+     return  note.folder_id === folderId
     } else{
       return note
-    }}
+    }
+  }
   );
 
-
+    console.log(notesInFolder);
     return (
 
       !this.props.err ?
@@ -32,8 +32,8 @@ class NoteListMain extends Component {
             <li key={note.id}>
               <Note
                 id={note.id}
-                name={note.name}
-                modified={note.modified}
+                name={note.note_name}
+                modified={note.date_modified}
                 history={this.props.history}
                 match={this.props.match}
               />

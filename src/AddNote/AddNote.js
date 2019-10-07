@@ -87,12 +87,12 @@ export default class AddNote extends Component {
   }
 
   addNoteRequest(name, content, folderId, date, addNote){
-    fetch('http://localhost:9090/notes', {
+    fetch('http://localhost:8000/notes', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({name: name, content: content, modified: date, folderId: folderId})
+      body: JSON.stringify({note_name: name, content: content, date_modified: date, folder_id: folderId})
     })
     .then(res => {
       if (!res.ok) {

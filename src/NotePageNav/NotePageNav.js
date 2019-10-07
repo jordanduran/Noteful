@@ -24,7 +24,7 @@ class NotePageNav extends Component {
         </CircleButton>
         {folders && (
           <h3 className='NotePageNav__folder-name'>
-            {folders.name}
+            {folders.title}
           </h3>
         )}
       </div>
