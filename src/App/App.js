@@ -66,7 +66,7 @@ class App extends Component {
     return (
       <HandleError>
       <>
-        {['/', '/folder/:folderId'].map(path =>
+        {['/Noteful/', '/Noteful/folder/:folderId'].map(path =>
         
           <Route
             exact
@@ -77,15 +77,15 @@ class App extends Component {
           
         )}
         <Route
-          path='/note/:noteId'
+          path='/Noteful/note/:noteId'
           component={NotePageNav}
         />
         <Route
-          path='/add-folder'
+          path='/Noteful/add-folder'
           component={AddFolder}
         />
         <Route
-          path='/add-note'
+          path='/Noteful/add-note'
           component={AddNote}
         />
         
@@ -100,7 +100,7 @@ class App extends Component {
     return (
       <HandleError>
       <>
-        {['/', '/folder/:folderId'].map(path =>
+        {['/Noteful/', '/Noteful/folder/:folderId'].map(path =>
           <Route
             exact
             key={path}
@@ -109,7 +109,7 @@ class App extends Component {
           />
         )}
         <Route
-          path='/note/:noteId'
+          path='/Noteful/note/:noteId'
           render={routeProps => {
             const noteId = parseInt(routeProps.match.params.noteId, 10)
             const note = findNote(notes, noteId)
@@ -122,10 +122,10 @@ class App extends Component {
           }}
         />
         <Route
-          path='/add-folder'       
+          path='/Noteful/add-folder'       
         />
         <Route
-          path='/add-note'
+          path='/Noteful/add-note'
         />
       </>
       </HandleError>
