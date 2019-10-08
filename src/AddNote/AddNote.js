@@ -39,7 +39,7 @@ export default class AddNote extends Component {
     let hasError = false;
     console.log(name)
     console.log(this.context.folders)
-    if(this.context.folders.find((folder) => folder.name === name) === undefined){
+    if(this.context.folders.find((folder) => folder.title === name) === undefined){
       errorMsg = 'Please select a valid folder'
       hasError = true;
     } else {
@@ -114,7 +114,7 @@ export default class AddNote extends Component {
     if (!this.state.folder){
       this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders[0].id, new Date(), addNote)
     } else {
-      this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders.find((folder) => folder.name === this.state.folder).id
+      this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders.find((folder) => folder.title === this.state.folder).id
     , new Date(), addNote)
     }
   }
@@ -124,7 +124,7 @@ export default class AddNote extends Component {
     const filteredFolders = this.context.folders.map(folder => {
       console.log(folder);
       return (
-        <option key={folder.id} value={folder.name}>{folder.name}</option>
+        <option key={folder.id} value={folder.title}>{folder.title}</option>
       )
     })
     return(

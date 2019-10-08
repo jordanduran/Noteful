@@ -26,7 +26,6 @@ export default class Note extends React.Component {
       .then(res => {
         if (!res.ok)
           return res.json().then(e => Promise.reject(e))
-        return res.json()
       })
       .then(() => {
         this.context.deleteNote(noteId)
@@ -40,12 +39,12 @@ export default class Note extends React.Component {
   }
 
   render() {
-    const { note_name, id, date_modified } = this.props
+    const { name, id, modified } = this.props
     return (
       <div className='Note'>
         <h2 className='Note__title'>
           <Link to={`/note/${id}`}>
-            {note_name}
+            {name}
           </Link>
         </h2>
         <button
@@ -62,7 +61,7 @@ export default class Note extends React.Component {
             Modified
             {' '}
             <span className='Date'>
-              {format(date_modified, 'Do MMM YYYY')}
+              {format(modified, 'Do MMM YYYY')}
             </span>
           </div>
         </div>
