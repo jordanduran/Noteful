@@ -59,7 +59,7 @@ export default class AddFolder extends Component {
     })
     .then(res => {
       addFolder(res);
-      this.props.history.push("/");
+      this.props.history.push("/Noteful");
     })
     .catch(err => console.log(name, err))
   }
