@@ -19,7 +19,7 @@ class NoteListNav extends Component {
             <li key={folder.id}>
               <NavLink
                 className='NoteListNav__folder-link'
-                to={`/folder/${folder.id}`}
+                to={`/Noteful/folder/${folder.id}`}
               >
                 <span className='NoteListNav__num-notes'>
                   {countNotesForFolder(notes, folder.id)}
@@ -32,7 +32,7 @@ class NoteListNav extends Component {
         <div className='NoteListNav__button-wrapper'>
           <CircleButton
             tag={Link}
-            to='/add-folder'
+            to='/Noteful/add-folder'
             type='button'
             className='NoteListNav__add-folder-button'
           >

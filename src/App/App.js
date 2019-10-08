@@ -151,7 +151,7 @@ class App extends Component {
           </nav>
           <header className='App__header'>
             <h1>
-              <Link to='/'>Noteful</Link>
+              <Link to='/Noteful/'>Noteful</Link>
               {' '}
               <FontAwesomeIcon icon='check-double' />
             </h1>
