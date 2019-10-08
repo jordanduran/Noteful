@@ -44,7 +44,7 @@ export default class AddFolder extends Component {
   }
 
   addFolderRequest(name, addFolder) {
-    fetch(`http://localhost:8000/folders`, {
+    fetch(`https://afternoon-eyrie-12522.herokuapp.com/folders`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

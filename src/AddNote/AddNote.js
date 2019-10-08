@@ -87,7 +87,7 @@ export default class AddNote extends Component {
   }
 
   addNoteRequest(name, content, folderId, date, addNote){
-    fetch('http://localhost:8000/notes', {
+    fetch('https://afternoon-eyrie-12522.herokuapp.com/notes', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

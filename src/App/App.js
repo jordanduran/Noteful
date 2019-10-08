@@ -19,7 +19,7 @@ class App extends Component {
   };
 
   getFolders() {
-    fetch('http://localhost:8000/folders')
+    fetch('https://afternoon-eyrie-12522.herokuapp.com/folders')
     .then(res => {
       if(!res.ok) {
         throw new Error('Opps! Something went wrong')
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   getNotes() {
-    fetch('http://localhost:8000/notes')
+    fetch('https://afternoon-eyrie-12522.herokuapp.com/notes')
     .then(res => {
       if(!res.ok) {
         throw new Error('Oops! Something went wrong')
