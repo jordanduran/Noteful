@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ca72542d68247e88ec8a0f26d4605a1d",
+    "revision": "90f0119d0616cee72afe4e1de6c4098f",
     "url": "/Noteful/index.html"
   },
   {
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Noteful/static/js/main.1a724463.chunk.js"
   },
   {
-    "revision": "42ac5946195a7306e2a5",
-    "url": "/Noteful/static/js/runtime~main.a8a9905a.js"
+    "revision": "309ee1720624e2cab1f3",
+    "url": "/Noteful/static/js/runtime~main.d1f2c510.js"
   }
 ]);
