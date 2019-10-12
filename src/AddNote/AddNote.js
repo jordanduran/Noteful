@@ -37,8 +37,7 @@ export default class AddNote extends Component {
   validateFolder(name){
     let errorMsg = this.state.validFolderMessage;
     let hasError = false;
-    console.log(name)
-    console.log(this.context.folders)
+  
     if(this.context.folders.find((folder) => folder.title === name) === undefined){
       errorMsg = 'Please select a valid folder'
       hasError = true;
@@ -105,12 +104,10 @@ export default class AddNote extends Component {
   }
 
   render(){
-    console.log(this.props)
-
 
     this.handleSubmit= (event) => {
     event.preventDefault();
-    console.log(this.state.folder)
+
     if (!this.state.folder){
       this.addNoteRequest(this.state.noteName, this.state.noteContent, this.context.folders[0].id, new Date(), addNote)
     } else {
@@ -122,7 +119,6 @@ export default class AddNote extends Component {
     const { addNote } = this.context
 
     const filteredFolders = this.context.folders.map(folder => {
-      console.log(folder);
       return (
         <option key={folder.id} value={folder.title}>{folder.title}</option>
       )
@@ -131,10 +127,10 @@ export default class AddNote extends Component {
       <div>
         <form onSubmit= {(event) => this.handleSubmit(event)}>
           <label > Note Name
-            <input placeholder = "Note name" onChange = {(e) => this.updateNoteName(e.target.value)}></input>
+            <input placeholder = "Note name" required onChange = {(e) => this.updateNoteName(e.target.value)}></input>
           </label>
           <label> Note content
-            <input placeholder = "Note content" onChange = {(e) => this.updateNoteContent(e.target.value)}></input>
+            <input placeholder = "Note content" required onChange = {(e) => this.updateNoteContent(e.target.value)}></input>
           </label>
           <label> Folder Name
             <select placeholder = "Folder name" onChange = {(e) => 
@@ -147,7 +143,9 @@ export default class AddNote extends Component {
         {!this.state.validNoteName ? <p>{this.state.validNoteMessage}</p> : <></>}
         {!this.state.validContent ? <p>{this.state.validContentMessage}</p>: <></>}
         {!this.state.validFolder ? <p>{this.state.validFolderMessage}</p> : <> </>}
+        <h3>{this.props.error}</h3>
       </div>
-    )
+      
+    ) 
   }
 }

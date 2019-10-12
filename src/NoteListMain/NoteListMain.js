@@ -21,7 +21,6 @@ class NoteListMain extends Component {
   }
   );
 
-    console.log(notesInFolder);
     return (
 
       !this.props.err ?

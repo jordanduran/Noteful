@@ -52,6 +52,10 @@ class App extends Component {
   }
 
   addNote = (note) => {
+
+    if(!note.note_name || !note.content) {
+      throw new Error('You need to enter a name and message!')
+    }
     this.setState({notes: [...this.state.notes, note]})
     window.history.back()
   }
